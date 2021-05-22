@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <Title>New Scholarship</Title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>@ViewBag.Title</title>
+    
+    @* <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script> *@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <link href="  https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet"></link>
+    
+  </head>
+  <body>
+    @model BurseFMI.appModels.RequestScholarshipModel
+
+    <h1 style="align:center"><strong>Submit a new message</strong></h1>
+
+
+
+    
+        
+
+    <div class="row">
+        <div class="col-md-8">
+            <section id="loginForm">
+                @using (Html.BeginForm("RequestScholarship", "Student",FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <div class="form-group">
+                    @Html.DropDownListFor(m=>m.TipBursa,new SelectList(Model.selectListItems,"Value","Text"),"Selecteaza tipul bursei")
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.AnInmatriculare, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.AnInmatriculare, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.VenitLunarMembru, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.VenitLunarMembru, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.VenitLunarMembruSecretar, new { @class = "control-label" })
+                        @Html.TextBoxFor(m=>m.VenitLunarMembruSecretar, new { @class = "form-control " })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ContributiiStiintifice, new { @class = "control-label" })
+                        @Html.TextBoxFor(m=>m.ContributiiStiintifice, new { @class = "form-control " })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.DiplomePremii, new { @class = "control-label" })
+                        @Html.TextBoxFor(m=>m.DiplomePremii, new { @class = "form-control"})
+                    </div>
+                    
+                    
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.NumeArhivaDocsSociala, new { @class = "control-label" })
+                        @Html.TextBoxFor(m=>m.NumeArhivaDocsSociala, new { @class = "form-control " })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.CaleArhiva, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.CaleArhiva, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.TipArhiva, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.TipArhiva, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Cnp, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Cnp, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.AlteDetalii, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.AlteDetalii, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Iban, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Iban, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.NumeFisierExtrasCont, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.NumeFisierExtrasCont, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.CaleExtrasCont, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.CaleExtrasCont, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group" >
+                            <div style="display:flex;flex-direction:row">
+                   <p><span>@Html.CheckBoxFor(m => m.AcordGdpr, new { @checked = false }) </span>  Sunt de acord cu <span><a href="@Url.Action("AcordGdpr", "Student")" target="_blank">termenii si conditii</a></span> </p> 
+                        </div>
+                    
+                        
+                    </div>
+                     
+                    @* <div class="form-group">
+                         @Html.LabelFor(m=>m.Observatii, new { @class = "col-md-5 control-label" }) 
+                        <div class="col-md-8 h-30">
+                         @Html.TextAreaFor(m=>m.Observatii, new { @class = "form-control",@Style="height:100px",@readonly="true" }) 
+                        </div>
+                    </div> *@
+                    
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Submit message" class="btn btn-default" />
+                        </div>
+                    </div>
+                    
+                    
+                    @if(!string.IsNullOrEmpty(ViewBag.message))
+                    {
+                        <h2 style="color:green">@ViewBag.message</h2>
+                    }
+                    @* Enable this once you have account confirmation enabled for password reset functionality
+                        <p>
+                            @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                        </p>*@
+                }
+            </section>
+        </div>
+    </div>
+  
+  </body>
+</html>
+
+    
