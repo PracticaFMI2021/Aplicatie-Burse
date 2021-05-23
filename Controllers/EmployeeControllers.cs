@@ -3,7 +3,7 @@ using BurseFMI.dbModels;
 using System.IO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-// using Microsoft.AspNetCore.JsonPatchd;
+// using Microsoft.AspNetCore.JsonPatchdd;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
