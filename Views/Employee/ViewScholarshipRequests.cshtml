@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="~/employee.css" type="text/css" />
+    <Title>New Message</Title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  </head>
+  <body>
+    @model BurseFMI.appModels.ViewScholarshipsModel
+
+
+
+
+
+    
+        
+
+    <div class="row">
+        <div class="col-md-8">
+            <section id="loginForm">
+                @using (Html.BeginForm("ViewScholarshipRequests", "Employee", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                     @* foreach (var property in obj.GetType().GetProperties()) *@
+                    @if(Model.sholarshipRequests.Count()>0)
+                        {<table class="table">
+                                <thead>
+                            <tr class="selected_row"> 
+                                @foreach (var property in Model.sholarshipRequests[0].GetType().GetProperties())
+                                {   @if(property.Name.ToString()!="MedieGenSemAnterior"||property.Name.ToString()!="MedieGenAnAnterior"||property.Name.ToString()!="MedieAdmitere"||property.Name.ToString()!="MedieBac")
+                                    {<th>
+                                         @property.Name.ToString()
+                                    </th>}
+                                }
+                            </tr>
+                                </thead>
+                                <tbody>
+                            @for(int i=0;i<Model.sholarshipRequests.Count();++i){
+                                <div style="display:flex;flex-direction:row">
+                                <tr class="selected_row">
+                                            @Html.ActionLink("","VerifyScholarship","Employee",new
+                                    {selectedRequest=Model.sholarshipRequests[i].CodMatricol+"_"+Model.sholarshipRequests[i].CodBursa,scholarshipType=Model.category})
+                                @foreach (var property in Model.sholarshipRequests[i].GetType().GetProperties())
+                                {
+                                   
+                                                        <td>@property.GetValue(Model.sholarshipRequests[i])</td>
+                                    
+                                   
+                                
+                               
+                                }
+                                 
+                                                       <td><a href="@Url.Action("VerifyScholarshipRequest", "Employee",new {selectedRequest=Model.sholarshipRequests[i].CodMatricol+"_"+Model.sholarshipRequests[i].CodBursa.Split()[0]+"_"+Model.sholarshipRequests[i].CodBursa.Split()[1],scholarshipType=Model.scholarshipType})">Vizualizeaza cererea</a></td>
+                                                        <td><a href="@Url.Action("ScholarshipRefused", "Employee",new {selectedRequest=Model.sholarshipRequests[i].CodMatricol+"_"+Model.sholarshipRequests[i].CodBursa} )"><span style="color:red">Cerere respinsa <i class="icon-thumbs-down" style="color:red"></i></span></a></td>
+                                                        <td><a href="@Url.Action("ScholarshipAccepted", "Employee",new {selectedRequest=Model.sholarshipRequests[i].CodMatricol+"_"+Model.sholarshipRequests[i].CodBursa})"><span style="color:green">Cerere acceptata <i class="icon-thumbs-up" style="color:green"></i></span></a></td>
+                                    
+                                </tr>
+                                
+                                            
+                                </div>
+                            }
+                            </tbody>
+                        </table>}
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <div class="generate_lists" style="display:flex;flex-direction:row">
+                        <div class="form-group">
+                        @Html.DropDownListFor(m=>m.scholarshipType,new SelectList(Model.selectListScholarships,"Value","Text"),"Selecteaza tip bursa")
+                        </div>
+                        <div class="form-group">
+                             @Html.DropDownListFor(m=>m.groupType,new SelectList(Model.selectListGroups,"Value","Text"),"Selecteaza studenti")
+                    
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Genereaza liste" class="btn btn-default" />
+                            </div>
+                    
+                    </div>
+                    </div>
+                    
+                 
+                    @* Enable this once you have account confirmation enabled for password reset functionality
+                        <p>
+                            @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                        </p>*@
+                }
+            </section>
+        </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <Title>Modify Scholarship</Title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>@ViewBag.Title</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    @model BurseFMI.appModels.RequestScholarshipModel
+
+    <h1 style="align:center"><strong>Submit a new message</strong></h1>
+
+
+
+    
+        
+
+    <div class="row">
+        <div class="col-md-8">
+            <section id="loginForm">
+                @using (Html.BeginForm("VerifyScholarshipRequest", "Employee",FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    @* <div class="form-group">
+                    @Html.DropDownListFor(m=>m.nume,new SelectList(Model.selectListItems,"Value","Text"),"Select Doctor")
+                    </div> *@
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.AnInmatriculare, new { @class = "control-label" })
+                        @{
+                            if(Model.CurrentViewer=="Secretar")
+                                @Html.TextBoxFor(m => m.AnInmatriculare, new { @class = "form-control",@readonly="true" })
+                            else
+                                @Html.TextBoxFor(m => m.AnInmatriculare, new { @class = "form-control" })
+                        
+                        }
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.VenitLunarMembru, new { @class = "control-label" })
+                        @{
+                            if(Model.CurrentViewer=="Secretar")
+                                @Html.TextBoxFor(m => m.VenitLunarMembru, new { @class = "form-control",@readonly="true" })
+                            else
+                                @Html.TextBoxFor(m => m.VenitLunarMembru, new { @class = "form-control" })
+                        
+                        }
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.VenitLunarMembruSecretar, new { @class = "control-label" })
+                        @{
+                            if(Model.CurrentViewer=="Secretar")
+                                @Html.TextBoxFor(m => m.VenitLunarMembruSecretar, new { @class = "form-control",@readonly="true" })
+                            else
+                                @Html.TextBoxFor(m => m.VenitLunarMembruSecretar, new { @class = "form-control" })
+                        
+                        }
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ContributiiStiintifice, new { @class = "control-label" })
+                       @{
+                            if(Model.CurrentViewer=="Secretar")
+                                @Html.TextBoxFor(m => m.ContributiiStiintifice, new { @class = "form-control",@readonly="true" })
+                            else
+                                @Html.TextBoxFor(m => m.ContributiiStiintifice, new { @class = "form-control" })
+                        
+                        }
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.DiplomePremii, new { @class = "control-label" })
+                        @{
+                            if(Model.CurrentViewer=="Secretar")
+                                @Html.TextBoxFor(m => m.DiplomePremii, new { @class = "form-control",@readonly="true" })
+                            else
+                                @Html.TextBoxFor(m => m.DiplomePremii, new { @class = "form-control" })
+                        
+                        }
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.AcordGdpr, new { @class = "control-label" })
+                       @{
+                            if(Model.CurrentViewer=="Secretar")
+                                @Html.TextBoxFor(m => m.AcordGdpr, new { @class = "form-control",@readonly="true" })
+                            else
+                                @Html.TextBoxFor(m => m.AcordGdpr, new { @class = "form-control" })
+                        
+                        }
+                    </div>
+                    
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.NumeArhivaDocsSociala, new { @class = "control-label" })
+                        @{
+                            if(Model.CurrentViewer=="Secretar")
+                                @Html.TextBoxFor(m => m.NumeArhivaDocsSociala, new { @class = "form-control",@readonly="true" })
+                            else
+                                @Html.TextBoxFor(m => m.NumeArhivaDocsSociala, new { @class = "form-control" })
+                        
+                        }
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.CaleArhiva, new { @class = "control-label" })
+                       @{
+                            if(Model.CurrentViewer=="Secretar")
+                                @Html.TextBoxFor(m => m.CaleArhiva, new { @class = "form-control",@readonly="true" })
+                            else
+                                @Html.TextBoxFor(m => m.CaleArhiva, new { @class = "form-control" })
+                        
+                        }
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.TipArhiva, new { @class = "control-label" })
+                       @{
+                            if(Model.CurrentViewer=="Secretar")
+                                @Html.TextBoxFor(m => m.TipArhiva, new { @class = "form-control",@readonly="true" })
+                            else
+                                @Html.TextBoxFor(m => m.TipArhiva, new { @class = "form-control" })
+                        
+                        }
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Cnp, new { @class = "control-label" })
+                        @{
+                            if(Model.CurrentViewer=="Secretar")
+                                @Html.TextBoxFor(m => m.Cnp, new { @class = "form-control",@readonly="true" })
+                            else
+                                @Html.TextBoxFor(m => m.Cnp, new { @class = "form-control" })
+                        
+                        }
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.AlteDetalii, new { @class = "control-label" })
+                        @{
+                            if(Model.CurrentViewer=="Secretar")
+                                @Html.TextBoxFor(m => m.AlteDetalii, new { @class = "form-control",@readonly="true" })
+                            else
+                                @Html.TextBoxFor(m => m.AlteDetalii, new { @class = "form-control" })
+                        
+                        }
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Iban, new { @class = "control-label" })
+                        @{
+                            if(Model.CurrentViewer=="Secretar")
+                                @Html.TextBoxFor(m => m.Iban, new { @class = "form-control",@readonly="true" })
+                            else
+                                @Html.TextBoxFor(m => m.Iban, new { @class = "form-control" })
+                        
+                        }
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.NumeFisierExtrasCont, new { @class = "control-label" })
+                        @{
+                            if(Model.CurrentViewer=="Secretar")
+                                @Html.TextBoxFor(m => m.NumeFisierExtrasCont, new { @class = "form-control",@readonly="true" })
+                            else
+                                @Html.TextBoxFor(m => m.NumeFisierExtrasCont, new { @class = "form-control" })
+                        
+                        }
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.CaleExtrasCont, new { @class = "control-label" })
+                        @{
+                            if(Model.CurrentViewer=="Secretar")
+                                @Html.TextBoxFor(m => m.CaleExtrasCont, new { @class = "form-control",@readonly="true" })
+                            else
+                                @Html.TextBoxFor(m => m.CaleExtrasCont, new { @class = "form-control" })
+                        
+                        }
+                        
+                        
+                    </div>
+                    
+                    
+                     @if(Model.StatusSolicitare!=null&&Model.StatusSolicitare.Equals("REFUZAT")){
+                      
+                        <div class="form-group">
+                         @Html.LabelFor(m=>m.Motiv, new { @class = "col-md-5 control-label" }) 
+                        <div class="col-md-8 h-30">
+                         @Html.TextAreaFor(m=>m.Motiv, new { @class = "form-control",@Style="height:100px",@readonly="true" }) 
+                        </div>
+                        </div>
+                    }
+                    @if (Model.StatusSolicitare != null && Model.StatusSolicitare.Equals("ACCEPTAT"))
+                    {
+                        <div class="form-group">
+                        @Html.LabelFor(m => m.NumeFisierDeclAcceptare, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.NumeFisierDeclAcceptare, new { @class = "form-control" ,@readonly="true"})
+                    </div>
+                        <div class="form-group">
+                        @Html.LabelFor(m => m.CaleFisier, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.CaleFisier, new { @class = "form-control" ,@readonly="true"})
+                    </div>
+                    
+                    }
+                    @if(Model.beforeDeadlineReview)
+                    {<div class="form-group">
+                        @Html.LabelFor(m=>m.Observatii, new { @class = "col-md-5 control-label" })
+                        <div class="col-md-8 h-30">
+                            @Html.TextAreaFor(m=>m.Observatii, new { @class = "form-control",@Style="height:100px" })
+                        </div>
+                    </div>}
+                    <div class="form-group">
+                   @Html.HiddenFor(m=>m.TipBursa)
+                    </div>
+                    <div class="form-group">
+                   @Html.HiddenFor(m=>m.selectedRequest)
+                    </div>
+                    <div class="form-group">
+                   @Html.HiddenFor(m=>m.CodMatricol)
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Submit message" class="btn btn-default" />
+                        </div>
+                    </div>
+                    
+                    
+                    @if(!string.IsNullOrEmpty(ViewBag.message))
+                    {
+                        <h2 style="color:green">@ViewBag.message</h2>
+                    }
+                    @* Enable this once you have account confirmation enabled for password reset functionality
+                        <p>
+                            @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                        </p>*@
+                }
+            </section>
+        </div>
+    </div>
+  </body>
+</html>
+@section Scripts{
+    <script type="text/javascript">
+    $(function () { // will trigger when the document is ready
+            //Initialise all datepickers whose class name are mydatepicker
+            // Display them with a button which containes a small calendar icon.
+            $(".mydatepicker")
+                .wrap('＜div class="input-group"＞')
+                .datepicker({
+                    dateFormat: "dd.mm.yy",
+                    changeYear: true,
+                    yearRange: "-70:+0",//year selection is possible from starting 70 years before now
+                    showOn: "both"
+                })
+                .next("button").button({
+                    icons: { primary: "ui-icon-calendar" },
+                    label: "Select Date",
+                    text: false
+                })
+                .addClass("btn btn-default")
+                .wrap('＜span class="input-group-btn"＞')
+                .find('.ui-button-text')
+                .css({
+                    'visibility': 'hidden',
+                    'display': 'inline'
+                });
+        });
+    </script>
+}

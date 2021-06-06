@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="~/employee.css" type="text/css" />
+    <Title>New Message</Title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>@ViewBag.Title</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    @model BurseFMI.appModels.GenerateListModel
+
+
+
+
+
+    
+        
+
+    <div class="row">
+        <div class="col-md-8">
+            <section id="loginForm">
+                @using (Html.BeginForm("GenerateLists", "Employee", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @if(Model.headOfColumns.Count()>0)
+                        {<table class="table">
+                                <thead>
+                            <tr>
+                                @for(int i=0;i<Model.headOfColumns.Count();++i)
+                                {
+                                    <th>
+                                        @Model.headOfColumns[i]
+                                    </th>
+                                }
+                            </tr>
+                                </thead>
+                                <tbody>
+                            @for(int i=0;i<Model.studentsData.Count();++i){
+                                <tr>
+                                    @for(int j=0;j<Model.studentsData[i].Count();++j)
+                                {
+                                    <th>
+                                            @Model.studentsData[i][j]
+                                    </th>
+                                }
+                                </tr>
+                            }
+                            </tbody>
+                        </table>}
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <div class="generate_lists">
+                        <div class="form-group">
+                        @Html.DropDownListFor(m=>m.category,new SelectList(Model.selectListItems,"Value","Text"),"Select list")
+                        </div>
+                        <div>
+                    
+                    
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Genereaza liste" class="btn btn-default" />
+                            </div>
+                    
+                    </div>
+                    </div>
+                    
+                 
+                    @* Enable this once you have account confirmation enabled for password reset functionality
+                        <p>
+                            @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                        </p>*@
+                }
+            </section>
+        </div>
+    </div>
+  </body>
+</html>
