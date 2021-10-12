@@ -1,0 +1,93 @@
+
+.HomePage{
+    text-align:center;
+    background-color:#bddd82;
+    color:rgb(9, 56, 100);
+    border: 3px solid yellow;
+        width: 80vw;
+        height:82vh;
+        position: absolute;
+        top:100px;
+        font-family:'Times New Roman', Times, serif;
+        display:block;
+        text-align: start;
+        font-size:25px;
+        z-index: 2;
+        right:calc(50% - 40vw);
+        opacity:0.9;
+        
+        
+        border-radius:25px;
+      
+        }
+
+
+.myFlex{
+  display:flex;
+  flex-wrap: wrap;
+  
+}
+.myFlex>div{
+  
+
+}
+.box{
+    background-color: lightgrey;
+
+  border: 7px solid black;
+  padding: auto;
+  margin: 20px;
+}
+ul>li{
+    margin-top:22px;
+}
+@media(prefers-reduced-motion: no-preference){
+    .transition1{
+        animation: Initiation 4s;
+       
+    }
+    .transition2{
+        animation: App-logo-float 4s;
+        animation-fill-mode: forwards;
+    }
+
+}
+@keyframes App-logo-float {
+    0% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(100px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 0.0;
+    }
+}
+@keyframes Initiation {
+    0% {
+
+        opacity: 1;
+    }
+    50% {
+
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0.3;
+        z-index:-7;
+
+    }
+}
+.test{
+    display: block;
+    height: 100px;
+    width: 100px;
+    background-color: red;
+}
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+  }

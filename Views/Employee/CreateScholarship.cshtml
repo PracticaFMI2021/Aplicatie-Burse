@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <Title>New Message</Title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>@ViewBag.Title</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <link href="  https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet"></link>
+    <script>
+   $(document).ready(
+  function () {
+    $(".mydatepicker").datepicker({ dateFormat: "dd.mm.yy",
+                    changeYear: true,
+                    yearRange: "-1:+0",
+                    });
+  }
+);  
+    </script>
+  </head>
+  <body>
+    @model BurseFMI.appModels.CreateScholarshipModel
+
+    <h1 style="align:center"><strong>Submit a new message</strong></h1>
+
+
+
+    
+        
+
+    <div class="row">
+        <div class="col-md-8">
+            <section id="loginForm">
+                @using (Html.BeginForm("CreateScholarship", "Employee",FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                   
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Tip, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Tip, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.DataLimitaSolicitare, new { @class = "control-label" })
+                        @Html.TextBoxFor(m=>m.DataLimitaSolicitare, new { @class = "form-control mydatepicker", @placeholder = "dd.mm.yyyy" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.DataLimitaRecenzie, new { @class = "control-label" })
+                        @Html.TextBoxFor(m=>m.DataLimitaRecenzie, new { @class = "form-control mydatepicker", @placeholder = "dd.mm.yyyy" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.DataLimitaContestatie, new { @class = "control-label" })
+                        @Html.TextBoxFor(m=>m.DataLimitaContestatie, new { @class = "form-control mydatepicker", @placeholder = "dd.mm.yyyy" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.DataInceput, new { @class = "control-label" })
+                        @Html.TextBoxFor(m=>m.DataInceput, new { @class = "form-control mydatepicker", @placeholder = "dd.mm.yyyy" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.DataFinal, new { @class = "control-label" })
+                        @Html.TextBoxFor(m=>m.DataFinal, new { @class = "form-control mydatepicker", @placeholder = "dd.mm.yyyy" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Descriere, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Descriere, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Suma, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Suma, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Buget, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Buget, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.NrBurse, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.NrBurse, new { @class = "form-control" })
+                    </div>
+                     <div class="form-group">
+                         @Html.LabelFor(m => m.Cod, new { @class = "control-label" })
+                        @Html.DropDownListFor(m=>m.Cod,new SelectList(Model.selectListItems,"Value","Text"),"Select list")
+                    </div>
+                    @* <div class="form-group">
+                        @Html.LabelFor(m=>m.Nume, new { @class = "col-md-5 control-label" })
+                        <div class="col-md-8 h-30">
+                            @Html.TextAreaFor(m=>m.Nume, new { @class = "form-control",@Style="height:300px" })
+                        </div>
+                    </div> *@
+                    
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Submit message" class="btn btn-default" />
+                        </div>
+                    </div>
+                    
+                    
+                    @if(!string.IsNullOrEmpty(ViewBag.message))
+                    {
+                        <h2 style="color:green">@ViewBag.message</h2>
+                    }
+                    @* Enable this once you have account confirmation enabled for password reset functionality
+                        <p>
+                            @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                        </p>*@
+                }
+            </section>
+        </div>
+    </div>
+  </body>
+</html>
+@section Scripts{
+    <script type="text/javascript">
+    $(function () { // will trigger when the document is ready
+            //Initialise all datepickers whose class name are mydatepicker
+            // Display them with a button which containes a small calendar icon.
+            $(".mydatepicker")
+                .wrap('＜div class="input-group"＞')
+                .datepicker({
+                    dateFormat: "dd.mm.yy",
+                    changeYear: true,
+                    yearRange: "-70:+0",//year selection is possible from starting 70 years before now
+                    showOn: "both"
+                })
+                .next("button").button({
+                    icons: { primary: "ui-icon-calendar" },
+                    label: "Select Date",
+                    text: false
+                })
+                .addClass("btn btn-default")
+                .wrap('＜span class="input-group-btn"＞')
+                .find('.ui-button-text')
+                .css({
+                    'visibility': 'hidden',
+                    'display': 'inline'
+                });
+        });
+    </script>
+}

@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="~/home.css" type="text/css" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Aplicatie burse</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    @model string
+  </head>
+    
+  <body>
+
+            <nav class="navbar navbar-light bg-light flex-container" style="opacity:0.8">
+               
+                    <h3 style="margin-right: 10px;">
+                        @Html.ActionLink("SETTINGS", "Settings","Settings")
+                        <i class="fas fa-wrench"></i>
+                    </h3>
+                    <h2 style="position:absolute;left:91%">
+                        @Html.ActionLink("LOGOUT", "Logout")
+                    </h2>
+                    @* <span class="navbar-brand mb-0 h1"><h2 style="position:relative;margin-bottom:0px">Welcome</h2></span> *@
+                
+            </nav>
+            <div style="width:100%;height:89vh;">
+              <div style="position:relative;margin-top:100px;text-align:center">
+            <h1 style="font-size:65px"><strong>Welcome,</strong></h1>
+            <h1 style="font-size:65px"><strong>@ViewBag.role</strong></h1>
+
+      
+            <div style="position: relative;margin:95px">
+            
+            </div>
+            </div>
+            </div>
+              
+              </div>
+  </body>
+</html>

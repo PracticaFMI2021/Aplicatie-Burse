@@ -1,0 +1,11 @@
+.generate_lists{
+      display:flex;
+    flex-direction:row;
+    position:relative;
+    width:100%;
+    height:300px;
+}
+.select_row:hover{
+  background-color:grey;
+
+}
